@@ -175,6 +175,7 @@ const SearchRanges: React.FC<SearchRangesProps> = ({
               />
             </div>
           </div>
+        </div>
       )}
     </div>
   );

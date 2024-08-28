@@ -252,8 +252,13 @@ class FetchingService {
           limit: limit,
       }).then(response => response.rc_direct_delegations);
   }
-  
 
+  async getIncomingRcDelegations(delegateeAccount: string, limit: number): Promise<Hive.RCDelegations[]> {
+    return await this.extendedHiveChain!.api.rc_api.list_rc_direct_delegations({
+        start: ["", delegateeAccount],
+        limit: limit,
+    }).then(response => response.rc_direct_delegations);
+}
   async getBlockByTime(date: Date): Promise<number> {
     const requestBody: Hive.GetBlockByTimeProps = {
       _timestamp: date,

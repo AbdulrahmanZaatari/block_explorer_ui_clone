@@ -11,6 +11,7 @@ import useWitnessDetails from "@/api/common/useWitnessDetails";
 import AccountVestingDelegationsCard from "./AccountVestingDelegationsCard";
 import AccountRcDelegationsCard from "./AccountRcDelegationsCard";
 import AccountBalanceCard from "./AccountBalanceCard";
+import AccountIncomingRcDelegationsCard from "./AccountIncomingRcDelegationsCard";
 import { config } from "@/Config";
 import Hive from "@/types/Hive"; 
 import { QueryObserverResult } from "@tanstack/react-query";
@@ -92,6 +93,11 @@ const AccountDetailsSection: React.FC<AccountDetailsSectionProps> = ({
         delegatorAccount={accountName}
         limit={config.maxDelegatorsCount}
         liveDataEnabled={liveDataEnabled}
+      />
+      <AccountIncomingRcDelegationsCard 
+        delegateeAccount={accountName} 
+        limit={config.maxDelegatorsCount} 
+        liveDataEnabled={liveDataEnabled} 
       />
       <VotersDialog
         accountName={accountName}
